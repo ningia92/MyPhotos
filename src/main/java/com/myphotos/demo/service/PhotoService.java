@@ -1,19 +1,14 @@
 package com.myphotos.demo.service;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import com.myphotos.demo.model.Photo;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PhotoService {
+public class PhotoService implements IPhotoService {
     private List<Photo> photos;
     private int lastId;
 
@@ -27,16 +22,19 @@ public class PhotoService {
         this.lastId = 3;
     }
 
+    @Override
     public Iterable<Photo> getAll() {
         return photos;
     }
 
+    @Override
     public Optional<Photo> getById(int id) {
         Optional<Photo> photo = photos.stream().filter(item->item.getId() == id).findFirst();
 
         return photo;
     }
 
+    @Override
     public Photo create(Photo photo) {
         this.lastId++;
 
@@ -47,6 +45,7 @@ public class PhotoService {
         return photo;
     }
 
+    @Override
     public Optional<Photo> update(int id, Photo photo) {
         Optional<Photo> foundPhoto = photos.stream().filter(item->item.getId() == id).findFirst();
 
@@ -59,6 +58,7 @@ public class PhotoService {
         return foundPhoto;
     }
 
+    @Override
     public Boolean delete(int id) {
         Optional<Photo> foundPhoto = photos.stream().filter(item->item.getId() == id).findFirst();
 
