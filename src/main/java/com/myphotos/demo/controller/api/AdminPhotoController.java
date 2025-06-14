@@ -2,6 +2,7 @@ package com.myphotos.demo.controller.api;
 
 import com.myphotos.demo.model.Photo;
 import com.myphotos.demo.service.PhotoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -10,10 +11,10 @@ import java.util.Optional;
 
 @RestController
 public class AdminPhotoController {
+    @Autowired
     private PhotoService photoService;
 
     public AdminPhotoController() {
-        photoService = new PhotoService();
     }
 
     @RequestMapping("/admin/api/photos")

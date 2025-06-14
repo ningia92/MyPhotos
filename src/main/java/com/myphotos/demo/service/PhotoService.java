@@ -3,6 +3,7 @@ package com.myphotos.demo.service;
 import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import com.myphotos.demo.model.Photo;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PhotoService {
     private List<Photo> photos;
     private int lastId;
