@@ -1,7 +1,6 @@
 package com.myphotos.demo.controller.api;
 
 import com.myphotos.demo.model.Photo;
-import com.myphotos.demo.service.DbPhotoService;
 import com.myphotos.demo.service.IPhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,8 +1,8 @@
 package com.myphotos.demo.controller.api;
 
 import com.myphotos.demo.model.Photo;
-import com.myphotos.demo.service.DbPhotoService;
 import com.myphotos.demo.service.IPhotoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -37,12 +37,12 @@ public class AdminPhotoController {
     }
 
     @RequestMapping(value = "/admin/api/photos", method = RequestMethod.POST)
-    public Photo create(@RequestBody Photo photo) {
+    public Photo create(@Valid @RequestBody Photo photo) {
         return photoService.create(photo);
     }
 
     @RequestMapping(value = "/admin/api/photos/{id}", method = RequestMethod.PUT)
-    public Photo update(@PathVariable int id, @RequestBody Photo photo) {
+    public Photo update(@PathVariable int id, @Valid @RequestBody Photo photo) {
         Optional<Photo> updatePhoto = photoService.update(id, photo);
 
         if (updatePhoto.isEmpty()) {

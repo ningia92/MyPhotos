@@ -15,9 +15,9 @@ public class PhotoService implements IPhotoService {
     public PhotoService() {
         this.photos = new ArrayList<>();
 
-        this.photos.add(new Photo(1, "./img/01.png"));
-        this.photos.add(new Photo(2, "./img/02.png"));
-        this.photos.add(new Photo(3, "./img/03.png"));
+        this.photos.add(new Photo(1, "static/img/01.png"));
+        this.photos.add(new Photo(2, "static/img/02.png"));
+        this.photos.add(new Photo(3, "static/img/03.png"));
 
         this.lastId = 3;
     }

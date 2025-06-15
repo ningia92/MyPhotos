@@ -5,7 +5,6 @@ import com.myphotos.demo.repository.IPhotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 @Service("mainPhotoService")
