@@ -2,16 +2,17 @@ package com.myphotos.demo.service;
 
 import com.myphotos.demo.model.Photo;
 import com.myphotos.demo.repository.IPhotoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service("mainPhotoService")
 public class DbPhotoService implements IPhotoService {
+    private final IPhotoRepository photoRepository;
 
-    @Autowired
-    private IPhotoRepository photoRepository;
+    public DbPhotoService(IPhotoRepository photoRepository) {
+        this.photoRepository = photoRepository;
+    }
 
     @Override
     public Iterable<Photo> getAll() {

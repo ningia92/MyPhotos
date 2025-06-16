@@ -3,7 +3,6 @@ package com.myphotos.demo.controller.api;
 import com.myphotos.demo.model.Photo;
 import com.myphotos.demo.service.IPhotoService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +12,10 @@ import java.util.Optional;
 
 @RestController
 public class AdminPhotoController {
-    @Autowired
-    @Qualifier("mainPhotoService")
-    private IPhotoService photoService;
+    private final IPhotoService photoService;
 
-    public AdminPhotoController() {
+    public AdminPhotoController(@Qualifier("mainPhotoService") IPhotoService photoService) {
+        this.photoService = photoService;
     }
 
     @RequestMapping("/admin/api/photos")
